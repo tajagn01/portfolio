@@ -108,8 +108,9 @@ function HeroSection() {
           className="w-96 h-96 md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px] object-contain rounded-3xl shadow-lg opacity-95 relative z-10 animate-float" 
         />
       </div>
-      {/* Scroll to explore */}
-      <div className="absolute left-1/2 bottom-8 transform -translate-x-1/2 flex flex-col items-center z-20">
+      
+      {/* Scroll to explore - Hidden on mobile */}
+      <div className="hidden md:flex absolute left-1/2 bottom-8 transform -translate-x-1/2 flex-col items-center z-20">
         <div className="w-8 h-12 border-2 border-gray-400 rounded-full flex items-start justify-center mb-2 animate-bounce">
           <div className="w-1 h-3 bg-blue-400 rounded-full mt-2"></div>
         </div>

@@ -43,7 +43,7 @@ function Navbar() {
     <nav className="relative flex justify-between items-center px-4 sm:px-8 md:px-16 lg:px-32 py-6 bg-black/10 bg-gray-800/30 backdrop-blur-md z-50">
       {/* Left side - Logo/Brand */}
       <div className="flex items-center gap-3 text-xl sm:text-2xl font-bold text-white cursor-pointer" onClick={() => handleNavClick('work')}>
-        <img src={logoImg} alt="CodeCrafter Logo" className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg object-cover mix-blend-multiply filter brightness-0 invert" />
+        <img src={logoImg} alt="CodeCrafter Logo" className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg object-cover" />
         <span className="hidden sm:block">CodeCrafter</span>
         <span className="sm:hidden">CC</span>
       </div>

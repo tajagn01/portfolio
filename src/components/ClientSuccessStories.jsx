@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const stats = [
-  { value: '50+', label: 'Projects Delivered' },
-  { value: '40+', label: 'Happy Clients' },
-  { value: '5+', label: 'Years Experience' },
-  { value: '98%', label: 'Client Satisfaction' },
+  { value: 50, label: 'Projects Delivered', suffix: '+' },
+  { value: 40, label: 'Happy Clients', suffix: '+' },
+  { value: 5, label: 'Years Experience', suffix: '+' },
+  { value: 98, label: 'Client Satisfaction', suffix: '%' },
 ];
 
 const testimonials = [
@@ -35,8 +35,61 @@ const testimonials = [
 ];
 
 function ClientSuccessStories() {
+  const [counts, setCounts] = useState([0, 0, 0, 0]);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            setHasAnimated(true);
+            animateCounts();
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [hasAnimated]);
+
+  const animateCounts = () => {
+    const duration = 2000; // 2 seconds
+    const steps = 60;
+    const stepDuration = duration / steps;
+
+    let currentStep = 0;
+
+    const interval = setInterval(() => {
+      currentStep++;
+      
+      const progress = currentStep / steps;
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4); // Smooth easing
+
+      const newCounts = stats.map((stat, index) => {
+        const targetValue = stat.value;
+        const currentValue = Math.floor(targetValue * easeOutQuart);
+        return currentValue;
+      });
+
+      setCounts(newCounts);
+
+      if (currentStep >= steps) {
+        clearInterval(interval);
+        // Ensure final values are exact
+        setCounts(stats.map(stat => stat.value));
+      }
+    }, stepDuration);
+  };
+
   return (
-    <section id="work" className="w-full py-20 bg-black">
+    <section ref={sectionRef} id="work" className="w-full py-20 bg-black">
       <div className="max-w-5xl mx-auto px-4">
         <h2 className="text-4xl md:text-5xl font-extrabold text-white text-center mb-4">Client Success Stories</h2>
         <p className="text-center text-blue-100 text-lg mb-12">Hear from our satisfied clients about their experience working with us and the results we've delivered.</p>
@@ -44,7 +97,9 @@ function ClientSuccessStories() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-14">
           {stats.map((stat, idx) => (
             <div key={idx} className="bg-[#181b20] rounded-xl flex flex-col items-center justify-center py-8 shadow border border-[#23272f] transition-all duration-300 hover:border-blue-400/50 hover:shadow-blue-400/20 hover:-translate-y-2">
-              <span className="text-3xl md:text-4xl font-extrabold text-blue-200 mb-1">{stat.value}</span>
+              <span className="text-3xl md:text-4xl font-extrabold text-blue-200 mb-1">
+                {counts[idx]}{stat.suffix}
+              </span>
               <span className="text-gray-300 text-base md:text-lg text-center">{stat.label}</span>
             </div>
           ))}

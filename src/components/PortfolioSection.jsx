@@ -90,10 +90,59 @@ function PortfolioSection() {
           <span className="font-bold text-white">Explore real results</span> from our recent projects.<br />
           Each solution delivered <span className="font-bold text-blue-200">measurable business impact</span> for our clients.
         </p>
-        {/* Project Card - New Animation Container */}
-        <div className="relative rounded-xl overflow-hidden max-w-7xl mx-auto min-h-[440px] bg-[#232428] shadow-2xl">
+        
+        {/* Mobile Layout */}
+        <div className="md:hidden">
+          <div className="relative rounded-xl overflow-hidden bg-[#232428] shadow-2xl">
+            {/* Image Section */}
+            <div className="relative h-64 bg-[#191a1e] overflow-hidden">
+              <img 
+                src={project.image} 
+                alt={project.title} 
+                className="object-cover w-full h-full transition-all duration-300"
+              />
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+              
+              {/* Navigation Arrows */}
+              <button 
+                onClick={handlePrev} 
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300 z-20"
+              >
+                <FiArrowLeft size={20} />
+              </button>
+              <button 
+                onClick={handleNext} 
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300 z-20"
+              >
+                <FiArrowRight size={20} />
+              </button>
+            </div>
+            
+            {/* Content Section */}
+            <div className="p-6 bg-[#232428]">
+              <h3 className="text-2xl font-bold text-white mb-3">
+                {project.title}
+              </h3>
+              <p className="text-blue-100 text-base mb-6">
+                {project.description}
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a href={project.caseStudy} className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-3 rounded-lg font-semibold text-sm transition-all duration-300 border border-blue-400 flex items-center justify-center gap-2 shadow-lg hover:shadow-blue-500/25">
+                  View Case Study <span className="text-lg">&#8594;</span>
+                </a>
+                <a href={project.website} className="bg-[#23272f] hover:bg-blue-900 text-blue-100 border border-blue-400 px-4 py-3 rounded-lg font-semibold text-sm transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-blue-400/25">
+                  Visit Website <FiExternalLink className="text-lg" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop Layout */}
+        <div className="hidden md:block relative rounded-xl overflow-hidden max-w-7xl mx-auto min-h-[440px] bg-[#232428] shadow-2xl">
           {/* Image Section - New Slide Animation */}
-          <div className={`absolute left-0 top-0 md:w-1/2 w-full h-full transition-all duration-${animationDuration} ease-in-out ${
+          <div className={`absolute left-0 top-0 w-1/2 h-full transition-all duration-${animationDuration} ease-in-out ${
             animationPhase === 'exit' ? 'transform translate-x-full rotate-y-12' : 
             animationPhase === 'enter' ? 'transform -translate-x-full rotate-y-12' : 
             'transform translate-x-0 rotate-y-0'
@@ -102,7 +151,7 @@ function PortfolioSection() {
               <img 
                 src={project.image} 
                 alt={project.title} 
-                className={`object-cover w-full h-full md:rounded-l-3xl transition-all duration-${animationDuration} ${
+                className={`object-cover w-full h-full rounded-l-3xl transition-all duration-${animationDuration} ${
                   animationPhase !== 'idle' ? 'filter brightness-75 blur-sm' : 'filter brightness-100 blur-0'
                 }`} 
               />
@@ -115,7 +164,7 @@ function PortfolioSection() {
                 }}
               ></div>
               {/* Persistent vertical gradient between image and text */}
-              <div className="hidden md:block absolute right-0 top-0 h-full w-16 pointer-events-none z-20" style={{background: 'linear-gradient(to right, rgba(35,36,40,0.0) 0%, rgba(35,36,40,0.7) 100%)'}}></div>
+              <div className="absolute right-0 top-0 h-full w-16 pointer-events-none z-20" style={{background: 'linear-gradient(to right, rgba(35,36,40,0.0) 0%, rgba(35,36,40,0.7) 100%)'}}></div>
               {/* Left Arrow */}
               <button 
                 onClick={handlePrev} 
@@ -130,13 +179,13 @@ function PortfolioSection() {
           </div>
           
           {/* Text Section - New Slide Animation */}
-          <div className={`absolute right-0 top-0 md:w-1/2 w-full h-full transition-all duration-${animationDuration} ease-in-out ${
+          <div className={`absolute right-0 top-0 w-1/2 h-full transition-all duration-${animationDuration} ease-in-out ${
             animationPhase === 'exit' ? 'transform translate-x-full -rotate-y-12' : 
             animationPhase === 'enter' ? 'transform -translate-x-full -rotate-y-12' : 
             'transform translate-x-0 rotate-y-0'
           }`}>
-            <div className="relative w-full h-full flex flex-col justify-center p-12 md:p-16 bg-[#232428] rounded-r-3xl">
-              <h3 className={`text-2xl md:text-3xl font-bold text-white mb-3 transition-all duration-${animationDuration} ${
+            <div className="relative w-full h-full flex flex-col justify-center p-16 bg-[#232428] rounded-r-3xl">
+              <h3 className={`text-3xl font-bold text-white mb-3 transition-all duration-${animationDuration} ${
                 animationPhase !== 'idle' ? 'transform translate-y-4 opacity-0' : 'transform translate-y-0 opacity-100'
               }`}>
                 {project.title}
@@ -168,8 +217,6 @@ function PortfolioSection() {
               </button>
             </div>
           </div>
-          
-
         </div>
       </div>
     </section>

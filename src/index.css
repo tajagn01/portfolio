@@ -32,10 +32,368 @@
   }
 }
 
+@keyframes float-glow {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateY(-10px) scale(1.1);
+    opacity: 0.4;
+  }
+}
+
+@keyframes tech-float {
+  0%, 100% {
+    transform: translateY(0px) rotateY(0deg);
+  }
+  25% {
+    transform: translateY(-3px) rotateY(1deg);
+  }
+  50% {
+    transform: translateY(-6px) rotateY(0deg);
+  }
+  75% {
+    transform: translateY(-3px) rotateY(-1deg);
+  }
+}
+
 .animate-pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
 }
 
 .animate-bounce-subtle {
   animation: bounce-subtle 1s ease-in-out infinite;
+}
+
+.animate-float-glow {
+  animation: float-glow 4s ease-in-out infinite;
+}
+
+.animate-tech-float {
+  animation: tech-float 3s ease-in-out infinite;
+}
+
+/* Technologies section specific styles */
+.tech-item {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tech-item:hover {
+  transform: translateY(-8px) scale(1.05) rotateY(5deg);
+}
+
+.tech-icon-container {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+}
+
+.tech-icon-container:hover {
+  transform: scale(1.1);
+  box-shadow: 
+    0 0 30px rgba(59, 130, 246, 0.4),
+    0 0 60px rgba(59, 130, 246, 0.2),
+    inset 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Enhanced marquee animation */
+@keyframes enhanced-marquee {
+  0% { 
+    transform: translateX(0);
+  }
+  100% { 
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: enhanced-marquee 25s linear infinite;
+}
+
+/* Glow effects for technology icons */
+.tech-icon {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 0 0px currentColor);
+}
+
+.tech-icon:hover {
+  filter: drop-shadow(0 0 8px currentColor);
+  transform: scale(1.2);
+}
+
+/* Background gradient animation */
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.gradient-animate {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* Portfolio section specific animations */
+@keyframes project-float {
+  0%, 100% {
+    transform: translateY(0px) rotateX(0deg);
+  }
+  25% {
+    transform: translateY(-3px) rotateX(1deg);
+  }
+  50% {
+    transform: translateY(-6px) rotateX(0deg);
+  }
+  75% {
+    transform: translateY(-3px) rotateX(-1deg);
+  }
+}
+
+.animate-project-float {
+  animation: project-float 4s ease-in-out infinite;
+}
+
+/* Enhanced button hover effects */
+.portfolio-button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.portfolio-button:hover::before {
+  left: 100%;
+}
+
+/* Project card hover effects */
+.project-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.project-card:hover {
+  transform: translateY(-8px) rotateX(2deg) rotateY(2deg);
+  box-shadow: 
+    0 20px 40px rgba(0,0,0,0.3),
+    0 0 30px rgba(59, 130, 246, 0.2);
+}
+
+/* Image zoom effect */
+.project-image {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.05);
+}
+
+/* Navigation arrow animations */
+.nav-arrow {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-arrow:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+}
+
+/* Text reveal animation */
+@keyframes text-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.text-reveal {
+  animation: text-reveal 0.6s ease-out forwards;
+}
+
+/* Expertise section specific animations */
+@keyframes expertise-float {
+  0%, 100% {
+    transform: translateY(0px) rotateX(0deg);
+  }
+  25% {
+    transform: translateY(-3px) rotateX(1deg);
+  }
+  50% {
+    transform: translateY(-6px) rotateX(0deg);
+  }
+  75% {
+    transform: translateY(-3px) rotateX(-1deg);
+  }
+}
+
+.animate-expertise-float {
+  animation: expertise-float 4s ease-in-out infinite;
+}
+
+/* Service card hover effects */
+.service-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.service-card:hover {
+  transform: translateY(-8px) rotateX(2deg) rotateY(2deg);
+  box-shadow: 
+    0 20px 40px rgba(0,0,0,0.3),
+    0 0 30px rgba(59, 130, 246, 0.2);
+}
+
+/* Service icon animations */
+.service-icon {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-icon:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 8px currentColor);
+}
+
+/* Progress bar glow effect */
+.progress-bar-glow {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+}
+
+/* Phase card animations */
+.phase-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.phase-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+}
+
+/* Completion message animation */
+@keyframes completion-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+.completion-pulse {
+  animation: completion-pulse 2s ease-in-out infinite;
+}
+
+/* Client Success Stories specific animations */
+@keyframes success-stories-float {
+  0%, 100% {
+    transform: translateY(0px) rotateX(0deg);
+  }
+  25% {
+    transform: translateY(-3px) rotateX(1deg);
+  }
+  50% {
+    transform: translateY(-6px) rotateX(0deg);
+  }
+  75% {
+    transform: translateY(-3px) rotateX(-1deg);
+  }
+}
+
+.animate-success-stories-float {
+  animation: success-stories-float 4s ease-in-out infinite;
+}
+
+/* Stats card hover effects */
+.stats-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.stats-card:hover {
+  transform: translateY(-8px) rotateX(2deg) rotateY(2deg);
+  box-shadow: 
+    0 20px 40px rgba(0,0,0,0.3),
+    0 0 30px rgba(34, 197, 94, 0.2);
+}
+
+/* Stats icon animations */
+.stat-icon {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stat-icon:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 8px currentColor);
+}
+
+/* Testimonial card hover effects */
+.testimonial-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-8px) rotateX(2deg) rotateY(2deg);
+  box-shadow: 
+    0 20px 40px rgba(0,0,0,0.3),
+    0 0 30px rgba(34, 197, 94, 0.2);
+}
+
+/* Testimonial avatar animations */
+.testimonial-avatar {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.testimonial-avatar:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 8px rgba(34, 197, 94, 0.6));
+}
+
+/* Star rating animation */
+@keyframes star-glow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+.star-glow {
+  animation: star-glow 2s ease-in-out infinite;
+}
+
+/* Success metrics highlight animation */
+@keyframes success-highlight {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.02);
+  }
+}
+
+.success-highlight {
+  animation: success-highlight 3s ease-in-out infinite;
 }

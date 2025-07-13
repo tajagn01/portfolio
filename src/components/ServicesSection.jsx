@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { FiGlobe, FiPenTool } from 'react-icons/fi';
+import { useSectionAnimation } from '../hooks/useSectionAnimation';
 
 function ServicesSection() {
   const [hoveredCard, setHoveredCard] = useState(null);
+  const sectionRef = useSectionAnimation();
 
   const handleMouseMove = (e, cardIndex) => {
     const card = e.currentTarget;
@@ -29,23 +31,23 @@ function ServicesSection() {
   };
 
   return (
-    <section className="w-full py-24 bg-black" id="services">
+    <section id="services" ref={sectionRef} className="py-20 bg-black relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-4">
         {/* Badge */}
-        <div className="flex justify-center mb-6">
+        <div className="animate-on-scroll flex justify-center mb-6">
           <span className="px-5 py-1.5 rounded-full bg-[#181b20] text-blue-100 text-base font-medium shadow border border-[#23272f]">Services</span>
         </div>
         {/* Heading */}
-        <h2 className="text-5xl md:text-6xl font-extrabold text-white text-center mb-4">What I Deliver</h2>
+        <h2 className="animate-on-scroll text-5xl md:text-6xl font-extrabold text-white text-center mb-4">What I Deliver</h2>
         {/* Subtitle */}
-        <div className="text-center text-xl mb-14">
+        <div className="animate-on-scroll text-center text-xl mb-14">
           <span className="font-bold text-white">Results-focused solutions</span> <span className="text-blue-100">tailored to your specific business goals</span>
         </div>
         {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {/* Web Development Card */}
           <div 
-            className="relative bg-gradient-to-br from-gray-800 via-gray-900 to-gray-950 rounded-2xl p-8 shadow border border-[#23272f] flex flex-col transition-all duration-500 ease-out cursor-pointer group"
+            className="animate-on-scroll relative bg-gradient-to-br from-gray-800 via-gray-900 to-gray-950 rounded-2xl p-8 shadow border border-[#23272f] flex flex-col transition-all duration-500 ease-out cursor-pointer group"
             onMouseMove={(e) => handleMouseMove(e, 0)}
             onMouseLeave={(e) => handleMouseLeave(e, 0)}
             onMouseEnter={() => handleMouseEnter(0)}
@@ -83,7 +85,7 @@ function ServicesSection() {
           
           {/* UI/UX Design Card */}
           <div 
-            className="relative bg-gradient-to-br from-gray-800 via-gray-900 to-gray-950 rounded-2xl p-8 shadow border border-[#23272f] flex flex-col transition-all duration-500 ease-out cursor-pointer group"
+            className="animate-on-scroll relative bg-gradient-to-br from-gray-800 via-gray-900 to-gray-950 rounded-2xl p-8 shadow border border-[#23272f] flex flex-col transition-all duration-500 ease-out cursor-pointer group"
             onMouseMove={(e) => handleMouseMove(e, 1)}
             onMouseLeave={(e) => handleMouseLeave(e, 1)}
             onMouseEnter={() => handleMouseEnter(1)}

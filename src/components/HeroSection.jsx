@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { FaLinkedinIn, FaGoogle, FaTrophy } from 'react-icons/fa';
+import { FaLinkedinIn, FaGoogle, FaGithub, FaTwitter } from 'react-icons/fa';
 import { BsCalendar2Event } from 'react-icons/bs';
 import { MdDesignServices } from 'react-icons/md';
 import { FiArrowUpRight, FiArrowRight } from 'react-icons/fi';
 import tajagnImg from '../assets/tajagn.png';
+import ProjectForm from './ProjectForm';
+import { useSectionAnimation } from '../hooks/useSectionAnimation';
 
 function HeroSection() {
   // Interpolated mouse position for the glow
   const [glowCenter, setGlowCenter] = useState({ x: 50, y: 50 });
+  const [isFormOpen, setIsFormOpen] = useState(false);
+  const sectionRef = useSectionAnimation();
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -28,7 +32,7 @@ function HeroSection() {
   }, []);
 
   return (
-    <section className="hero-section relative flex flex-col md:flex-row items-center justify-between px-4 sm:px-8 md:px-16 lg:px-32 py-16 min-h-[80vh] font-sans overflow-hidden bg-black">
+    <section id="work" className="hero-section relative flex flex-col md:flex-row items-center justify-between px-4 sm:px-8 md:px-16 lg:px-32 py-16 min-h-[80vh] font-sans overflow-hidden bg-black" ref={sectionRef}>
       {/* Main Black Background Gradient with Medium, Subtle Centered Blue Glow */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div
@@ -53,7 +57,7 @@ function HeroSection() {
       {/* Content Layer */}
       <div className="flex-1 z-20 relative">
         {/* Available for Projects Badge */}
-        <div className="flex items-center gap-2 bg-black/60 border border-white/20 px-6 py-1.5 rounded-full shadow-lg text-white text-sm font-medium backdrop-blur-md w-max mb-8 animate-float" style={{boxShadow: '0 2px 16px 0 rgba(0,0,0,0.12)'}}>
+        <div className="animate-on-scroll flex items-center gap-2 bg-black/60 border border-white/20 px-6 py-1.5 rounded-full shadow-lg text-white text-sm font-medium backdrop-blur-md w-max mb-8 animate-float" style={{boxShadow: '0 2px 16px 0 rgba(0,0,0,0.12)'}}>
           <span className="relative flex h-2.5 w-2.5">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-70"></span>
             <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-400"></span>
@@ -61,45 +65,44 @@ function HeroSection() {
           <span className="text-blue-100">Available for Projects</span>
         </div>
         
-        <h1 className="text-5xl md:text-6xl font-extrabold text-white leading-tight mb-6 mt-0" style={{fontFamily: 'Poppins, Inter, Arial, sans-serif'}}>
+        <h1 className="animate-on-scroll text-5xl md:text-6xl font-extrabold text-white leading-tight mb-6 mt-0" style={{fontFamily: 'Poppins, Inter, Arial, sans-serif'}}>
           Helping <br />
           Entrepreneurs <br />
           <span className="text-blue-300" style={{color: '#A3C9F9'}}>Dreams Come To<br />Life</span>
         </h1>
         
-        <div className="flex flex-wrap gap-4 mb-6">
-          <button className="flex items-center gap-2 bg-blue-200 hover:bg-blue-300 text-black px-6 py-3 rounded-lg font-semibold text-lg transition shadow border border-blue-200">
+        <div className="animate-on-scroll flex flex-wrap gap-4 mb-6">
+          <button 
+            onClick={() => setIsFormOpen(true)}
+            className="flex items-center gap-2 text-white hover:text-black hover:bg-blue-300 text-black px-6 py-3 rounded-lg font-semibold text-lg transition shadow border border-blue-200"
+          >
             Start Your Project <FiArrowUpRight className="text-xl" />
-          </button>
-          <button className="flex items-center gap-2 border border-blue-200 text-blue-200 hover:bg-blue-200 hover:text-black px-6 py-3 rounded-lg font-semibold text-lg transition shadow">
-            View Portfolio <FiArrowRight className="text-xl" />
           </button>
         </div>
         
-        <div className="flex flex-wrap gap-3 mb-4">
-          <a href="#" className="flex items-center gap-2 bg-[#17212b] text-blue-200 px-4 py-2 rounded-md text-base font-medium hover:bg-blue-900 transition shadow">
+        <div className="animate-on-scroll flex flex-wrap gap-3 mb-4">
+          <a href="https://www.linkedin.com/in/tajagn-garala-06ba45265/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-[#17212b] text-blue-200 px-4 py-2 rounded-md text-base font-medium hover:bg-blue-900 transition shadow">
             <FaLinkedinIn className="text-blue-400 text-lg" /> LinkedIn
           </a>
-          <a href="#" className="flex items-center gap-2 bg-[#17212b] text-blue-200 px-4 py-2 rounded-md text-base font-medium hover:bg-blue-900 transition shadow">
-            <BsCalendar2Event className="text-blue-400 text-lg" /> Book a Free UX Audit
+          <a href="https://x.com/Garala_Tajagn" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-blue-900 text-blue-200 px-4 py-2 rounded-md text-base font-medium hover:bg-blue-700 transition shadow">
+            <FaTwitter className="text-blue-400 text-lg" /> Twitter
           </a>
-          <a href="#" className="flex items-center gap-2 bg-yellow-900 text-yellow-200 px-4 py-2 rounded-md text-base font-medium hover:bg-yellow-700 transition shadow">
-            <FaTrophy className="text-yellow-400 text-lg" /> Awwwards
+          <a href="https://github.com/tajagn01" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-purple-900 text-purple-200 px-4 py-2 rounded-md text-base font-medium hover:bg-purple-700 transition shadow">
+            <FaGithub className="text-purple-400 text-lg" /> GitHub
           </a>
         </div>
         
         <div className="flex flex-wrap gap-3 mb-8">
-          <a href="#" className="flex items-center gap-2 bg-[#17212b] text-blue-200 px-4 py-2 rounded-md text-base font-medium hover:bg-blue-900 transition shadow">
-            <FaGoogle className="text-blue-400 text-lg" /> Google Business
-          </a>
-          <a href="#" className="flex items-center gap-2 bg-red-900 text-red-200 px-4 py-2 rounded-md text-base font-medium hover:bg-red-700 transition shadow">
-            <MdDesignServices className="text-red-400 text-lg" /> Design Rush
-          </a>
+          <button onClick={() => document.getElementById('portfolio-section')?.scrollIntoView({ behavior: 'smooth' })} className="flex items-center gap-2 bg-[#17212b] text-blue-200 px-4 py-2 rounded-md text-base font-medium hover:bg-blue-900 transition shadow">
+            <BsCalendar2Event className="text-blue-400 text-lg" /> Projects
+          </button>
         </div>
+        
+
       </div>
       
       {/* Right Side - Image */}
-      <div className="flex-1 flex flex-col items-center md:items-end justify-center relative mt-12 md:mt-0 z-20">
+      <div className="animate-on-scroll flex-1 flex flex-col items-center md:items-end justify-center relative mt-12 md:mt-0 z-20">
         {/* Glowing gradient behind image */}
         <div className="absolute w-96 h-96 md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px] rounded-full bg-gradient-to-br from-blue-300/60 via-blue-400/50 to-blue-500/60 blur-2xl animate-glow-float"></div>
         <img 
@@ -151,6 +154,9 @@ function HeroSection() {
         .animate-float { animation: float 3s ease-in-out infinite; }
         .animate-glow-float { animation: glow-float 4s ease-in-out infinite; }
       `}</style>
+      
+      {/* Project Form Modal */}
+      <ProjectForm isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} />
     </section>
   );
 }

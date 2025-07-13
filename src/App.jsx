@@ -10,16 +10,18 @@ import FooterSection from './components/FooterSection';
 
 function App() {
   return (
-    <div className="min-h-screen text-white bg-black">
-      <Navbar />
-      <HeroSection />
-      <TechnologiesSection />
-      <PortfolioSection />
-      <ServicesSection />
-      <ExpertiseSection />
-      <ClientSuccessStories />
-      <VantaCtaSection />
-      <FooterSection />
+    <div data-barba="wrapper" className="min-h-screen text-white bg-black">
+      <div data-barba="container" data-barba-namespace="home">
+        <Navbar />
+        <HeroSection />
+        <TechnologiesSection />
+        <PortfolioSection />
+        <ServicesSection />
+        <ExpertiseSection />
+        <ClientSuccessStories />
+        <VantaCtaSection />
+        <FooterSection />
+      </div>
     </div>
   )
 }

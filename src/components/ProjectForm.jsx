@@ -12,23 +12,10 @@ function ProjectForm({ isOpen, onClose }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // For testing purposes - simulate email sending
-    console.log('Form submitted:', formData);
-    console.log('Email would be sent to: tgarala74@gmail.com');
-    console.log('From:', formData.name, formData.email);
-    console.log('Message:', formData.message);
-    
-    // Show success message
-    alert('Thank you for your message! We\'ll get back to you soon.');
-    setFormData({ name: '', email: '', message: '' });
-    onClose();
-    
-    // TODO: Uncomment and configure EmailJS when ready for production
-    /*
     // EmailJS configuration
-    const serviceId = 'your_service_id';
-    const templateId = 'your_template_id';
-    const publicKey = 'your_public_key';
+    const serviceId = 'service_yfnd0b5';
+    const templateId = 'template_dxeb8ks';
+    const publicKey = 'X6U5-um22PTqpA0E0';
     
     const templateParams = {
       to_email: 'tgarala74@gmail.com',
@@ -49,7 +36,6 @@ function ProjectForm({ isOpen, onClose }) {
         console.error('Email sending failed:', error);
         alert('Sorry, there was an error sending your message. Please try again or contact us directly.');
       });
-    */
   };
 
   const handleChange = (e) => {

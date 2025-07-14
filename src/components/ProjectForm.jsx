@@ -13,9 +13,9 @@ function ProjectForm({ isOpen, onClose }) {
     e.preventDefault();
     
     // EmailJS configuration
-    const serviceId = 'service_yfnd0b5';
-    const templateId = 'template_dxeb8ks';
-    const publicKey = 'X6U5-um22PTqpA0E0';
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
     
     const templateParams = {
       to_email: 'tgarala74@gmail.com',

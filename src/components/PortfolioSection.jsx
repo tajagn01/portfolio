@@ -9,6 +9,20 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
+    title: 'E-Commerce Platform',
+    description: 'A modern, responsive e-commerce website with full shopping cart functionality and payment integration.',
+    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80',
+    caseStudy: '#',
+    website: 'https://e-commrece01.netlify.app/',
+    details: {
+      overview: 'A fully functional e-commerce platform with modern design, shopping cart functionality, and secure payment processing for online retailers.',
+      technologies: ['React', 'JavaScript', 'CSS3', 'HTML5', 'Netlify'],
+      features: ['Product Catalog', 'Shopping Cart', 'User Authentication', 'Payment Processing', 'Responsive Design'],
+      challenges: 'Creating a seamless shopping experience with real-time cart updates and ensuring the platform works flawlessly across all devices.',
+      solutions: 'Built a responsive design with modern CSS, implemented efficient state management for cart functionality, and optimized for performance and user experience.'
+    }
+  },
+  {
     title: 'Gujarat Flavor Restaurant',
     description: 'A modern restaurant website showcasing authentic Gujarati cuisine with online ordering and reservation system.',
     image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80',
@@ -34,20 +48,6 @@ const projects = [
       features: ['Real-time Analytics', 'Custom Dashboards', 'Data Export', 'User Management', 'API Integration'],
       challenges: 'Creating complex data visualizations that are both informative and performant, while handling large datasets efficiently.',
       solutions: 'Implemented optimized chart rendering with D3.js, used React.memo for performance, and created a modular dashboard system for easy customization.'
-    }
-  },
-  {
-    title: 'E-Commerce Platform',
-    description: 'A modern, responsive e-commerce website with full shopping cart functionality and payment integration.',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80',
-    caseStudy: '#',
-    website: 'https://e-commrece01.netlify.app/',
-    details: {
-      overview: 'A fully functional e-commerce platform with modern design, shopping cart functionality, and secure payment processing for online retailers.',
-      technologies: ['React', 'JavaScript', 'CSS3', 'HTML5', 'Netlify'],
-      features: ['Product Catalog', 'Shopping Cart', 'User Authentication', 'Payment Processing', 'Responsive Design'],
-      challenges: 'Creating a seamless shopping experience with real-time cart updates and ensuring the platform works flawlessly across all devices.',
-      solutions: 'Built a responsive design with modern CSS, implemented efficient state management for cart functionality, and optimized for performance and user experience.'
     }
   },
 ];

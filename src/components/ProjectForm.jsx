@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { FiX, FiUser, FiMail, FiMessageSquare } from 'react-icons/fi';
 import emailjs from '@emailjs/browser';
+import.meta.env.VITE_EMAILJS_SERVICE_ID;
+import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+
 
 function ProjectForm({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
@@ -8,6 +12,7 @@ function ProjectForm({ isOpen, onClose }) {
     email: '',
     message: ''
   });
+  const [notification, setNotification] = useState({ message: '', type: '' });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,14 +32,18 @@ function ProjectForm({ isOpen, onClose }) {
 
     emailjs.send(serviceId, templateId, templateParams, publicKey)
       .then((response) => {
-        console.log('Email sent successfully:', response);
-        alert('Thank you for your message! We\'ll get back to you soon.');
+        setNotification({ message: "Thank you for your message! We'll get back to you soon.", type: 'success' });
         setFormData({ name: '', email: '', message: '' });
-        onClose();
+        setTimeout(() => {
+          setNotification({ message: '', type: '' });
+          onClose();
+        }, 2500);
       })
       .catch((error) => {
-        console.error('Email sending failed:', error);
-        alert('Sorry, there was an error sending your message. Please try again or contact us directly.');
+        setNotification({ message: 'Sorry, there was an error sending your message. Please try again or contact us directly.', type: 'error' });
+        setTimeout(() => {
+          setNotification({ message: '', type: '' });
+        }, 3000);
       });
   };
 
@@ -50,6 +59,15 @@ function ProjectForm({ isOpen, onClose }) {
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
       <div className="bg-[#232428] rounded-2xl shadow-2xl max-w-md w-full p-8 relative border border-[#3a3d45]">
+        {/* Notification */}
+        {notification.message && (
+          <div
+            className={`absolute left-1/2 -translate-x-1/2 top-2 w-[90%] px-4 py-3 rounded-lg shadow-lg text-center z-50 transition-all duration-300
+              ${notification.type === 'success' ? 'bg-green-600/90 text-white border border-green-400' : 'bg-red-600/90 text-white border border-red-400'}`}
+          >
+            {notification.message}
+          </div>
+        )}
         {/* Close Button */}
         <button
           onClick={onClose}

@@ -23,20 +23,6 @@ const projects = [
     }
   },
   {
-    title: 'Gujarat Flavor Restaurant',
-    description: 'A modern restaurant website showcasing authentic Gujarati cuisine with online ordering and reservation system.',
-    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80',
-    caseStudy: '#',
-    website: 'https://gujaratflaver01.netlify.app/',
-    details: {
-      overview: 'A beautifully designed restaurant website for Gujarat Flavor, showcasing authentic Gujarati cuisine with an elegant dining experience. The website features a modern design that reflects the rich cultural heritage of Gujarat while providing a seamless user experience for customers.',
-      technologies: ['React', 'JavaScript', 'CSS3', 'HTML5', 'Netlify', 'Framer Motion'],
-      features: ['Menu Showcase', 'Online Reservations', 'Contact Information', 'Gallery', 'Responsive Design', 'Interactive UI'],
-      challenges: 'Creating an elegant restaurant website that captures the essence of Gujarati culture while maintaining modern design standards and ensuring excellent user experience across all devices.',
-      solutions: 'Designed a visually stunning website with cultural elements, implemented smooth animations using Framer Motion, created a responsive layout that works perfectly on all devices, and optimized for fast loading and excellent user experience.'
-    }
-  },
-  {
     title: 'Modern SaaS Dashboard',
     description: 'A modern analytics dashboard for SaaS businesses.',
     image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80',
@@ -48,6 +34,20 @@ const projects = [
       features: ['Real-time Analytics', 'Custom Dashboards', 'Data Export', 'User Management', 'API Integration'],
       challenges: 'Creating complex data visualizations that are both informative and performant, while handling large datasets efficiently.',
       solutions: 'Implemented optimized chart rendering with D3.js, used React.memo for performance, and created a modular dashboard system for easy customization.'
+    }
+  },
+  {
+    title: 'Gujarat Flavor Restaurant',
+    description: 'A modern restaurant website showcasing authentic Gujarati cuisine with online ordering and reservation system.',
+    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80',
+    caseStudy: '#',
+    website: 'https://gujaratflaver01.netlify.app/',
+    details: {
+      overview: 'A beautifully designed restaurant website for Gujarat Flavor, showcasing authentic Gujarati cuisine with an elegant dining experience. The website features a modern design that reflects the rich cultural heritage of Gujarat while providing a seamless user experience for customers.',
+      technologies: ['React', 'JavaScript', 'CSS3', 'HTML5', 'Netlify', 'Framer Motion'],
+      features: ['Menu Showcase', 'Online Reservations', 'Contact Information', 'Gallery', 'Responsive Design', 'Interactive UI'],
+      challenges: 'Creating an elegant restaurant website that captures the essence of Gujarati culture while maintaining modern design standards and ensuring excellent user experience across all devices.',
+      solutions: 'Designed a visually stunning website with cultural elements, implemented smooth animations using Framer Motion, created a responsive layout that works perfectly on all devices, and optimized for fast loading and excellent user experience.'
     }
   },
 ];

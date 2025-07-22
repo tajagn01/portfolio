@@ -27,7 +27,7 @@ const projects = [
     description: 'A modern analytics dashboard for SaaS businesses.',
     image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80',
     caseStudy: '#',
-    website: '#',
+    website: 'https://ravel01.netlify.app/',
     details: {
       overview: 'A comprehensive analytics dashboard providing real-time insights and data visualization for SaaS businesses, helping them make informed decisions.',
       technologies: ['React', 'TypeScript', 'D3.js', 'Chart.js', 'Firebase'],
